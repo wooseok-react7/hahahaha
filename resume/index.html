@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박우석 자기소개서</title>
+    <!-- <script src="dad.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
+    </style>
+
+    <script type="module">
+
+        $(document).ready(function () {
+            let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
+            fetch(url).then(res => res.json()).then(data => {
+                let temp = data['temp']
+                let clouds = data['clouds']
+                console.log(temp);
+                console.log(clouds);
+                $(`#weather`).text(`Seoul : ${temp}℃ 　　 🌧️: ${clouds}`);
+                //노랑색 박스는 ㄱ한자1 ....
+            })
+        })
+
+    </script>
+
+
+</head>
+
+<body>
+    <div class="title">
+
+        <p id="weather"> </p>
+
+    </div>
+
+    <h1 class="hi">안녕하세요 박우석 입니다</h1>
+
+    <div class="button_link">
+        <div>
+            <a target="_blank" href="https://blog.naver.com/youkn0wthat">Vlog</a>
+            <a target="_blank" href="https://github.com/wooseok-react7">Github</a>
+            <a target="_blank" href="https://www.instagram.com/">instagram</a>
+            <a target="_blank" href="https://www.youtube.com/">youtube</a>
+            <a target="_blank" href="https://www.tiktok.com/explore">Tiktok</a>
+        </div>
+    </div>
+    <div class="content_1">
+        <div>
+            　</br>
+            　</br>
+            안녕하세요 React 7기 박우석입니다 ㅎㅎ</br>
+            코딩에 흥미를 느끼고 개발자가 되고 싶어 지원하게 되었습니다.</br>
+            MBIT는 INTJ고 취미는 운동 좋아합니다</br>
+        </div>
+
+        <div class="go_go">
+            <p style="text-align: center;"> 절대로 포기하지 않고 끝까지 가서 취업까지</p>
+            <img
+                SRC="./images/gabojago_1.jpg">
+        </div>
+    </div>
+
+    <div class="h_12345">
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+
+        ⬇️ 
+
+        <div class='buttons'>
+            <button class='prev'>
+                <img src ='https://postfiles.pstatic.net/MjAyNDEwMDNfMjgw/MDAxNzI3OTM2MDcxNDI4.2tAoaQq2icAHuAlG9mtxGrObQ0Tsvh5kgI5CSmBVE1wg.kkrBFxzMnYKCKBGzGm38qzbX-DznPYhR9Jl2BFrHN-4g.PNG/%EA%B0%80%EB%B3%B4%EC%9E%90%EA%B3%A0.png?type=w966'>
+            </button>
+        </div>
+
+    </div>
+
+
+    <div>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+    </div>
+
+
+    <div class="mycard">
+        <div id="card" class="row row-cols-1 row-cols-md-5 g-0">
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="./images/movies_1.jpg"> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">영화 리뷰 사이트1</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="./images/movies_1.jpg"> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">자기소개서2</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="./images/movies_1.jpg"></a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">영화 리뷰 사이트3</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="./images/movies_1.jpg"></a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">자기소개서4</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="./images/movies_1.jpg"> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">자기소개서5</small>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="./images/movies_1.jpg"> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">자기소개서6</small>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="./images/movies_1.jpg"> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">자기소개서7</small>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <!-- <div>
+            <div class='buttons'>
+                <button class='prev'>
+                    뒤로
+                </button>
+                <button class='next'>
+                    앞으로
+                </button>
+            </div>
+        </div> -->
+
+    </div>
+    <script src="dad.js"></script>
+</body>
+
+</html>
