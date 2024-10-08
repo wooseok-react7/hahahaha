@@ -1,133 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPARTAFLIX</title>
+    <title>박우석 자기소개서</title>
+    <!-- <script src="dad.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
-
-        * {
-            font-family: "Do Hyeon", sans-serif;
-        }
-
-        .main {
-
-            color: white;
-
-            background-image: url('https://occ-0-1123-1217.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABeIfo7VL_VDyKnljV66IkR-4XLb6xpZqhpLSo3JUtbivnEW4s60PD27muH1mdaANM_8rGpgbm6L2oDgA_iELHZLZ2IQjG5lvp5d2.jpg?r=e6e.jpg');
-            background-position: center;
-            background-size: cover;
-
-        }
-
-        body {
-            background-color: black;
-        }
-
-        .mycards {
-            width: 1200px;
-            color: black;
-            margin: 20px auto 20px auto;
-
-        }
-
-        .mypostingbox {
-            width: 500px;
-            margin: 20px auto 20px auto;
-
-            border: 1px solid white;
-            padding: 20px;
-            border-radius: 5px;
-
-
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
     </style>
 
     <script type="module">
 
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyBTodFnTlLNuCHLl9jr9BxG8T51l3Co_X0",
-            authDomain: "sparta2-9e5ce.firebaseapp.com",
-            projectId: "sparta2-9e5ce",
-            storageBucket: "sparta2-9e5ce.appspot.com",
-            messagingSenderId: "285697899993",
-            appId: "1:285697899993:web:d14cbaa127ce89159badc8",
-            measurementId: "G-J71SZSSLD9"
-        };
-
-        // Firebase 인스턴스 초기화
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        $("#postingbtn").click(async function () {
-            let image = $('#image').val();
-            let title = $('#title').val();
-            let star = $('#star').val();
-            let comment = $('#comment').val();
-
-            let doc = {
-                'image': image,
-                'title': title,
-                'star': star,
-                'comment': comment
-            };
-
-            await addDoc(collection(db, "movies"), doc);
-            alert('저장 완료')
-            window.location.reload();
-        })
-
-        let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
-        fetch(url).then(res => res.json()).then(data => {
-            let temp = data['temp'];
-            if (temp > 20) {
-                $('#msg').text('더워요');
-            } else {
-                $('#msg').text('추워요');
-            }
-        })
-
-        let docs = await getDocs(collection(db, "movies"));
-        docs.forEach((doc) => {
-            let row = doc.data();
-            let image = row['image'];
-            let title = row['title'];
-            let comment = row['comment'];
-            let star = row['star'];
-
-            let temp_html = `
-            <div class="col">
-                <div class="card h-100">
-                    <img src="${image}"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${title}</h5>
-                        <p class="card-text">${star}</p>
-                        <p class="card-text">${comment}</p>
-                    </div>
-                </div>
-            </div>`;
-            $('#card').append(temp_html);
-
-        });
-
-
-        $("#savebtn").click(async function () {
-            $("#postingbox").toggle()
-
+        $(document).ready(function () {
+            let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
+            fetch(url).then(res => res.json()).then(data => {
+                let temp = data['temp']
+                let clouds = data['clouds']
+                console.log(temp);
+                console.log(clouds);
+                $(`#weather`).text(`Seoul : ${temp}℃ 　　 🌧️: ${clouds}`);
+                //노랑색 박스는 ㄱ한자1 ....
+            })
         })
 
     </script>
@@ -136,83 +36,192 @@
 </head>
 
 <body>
-    <header class="p-3 text-bg-dark">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                </a>
+    <div class="title">
 
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary">SPARTAFLIX</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Series</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Movie</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">MY Page</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">seoul <span id='temperature'>20</span>℃ </a></li>
-                </ul>
+        <p id="weather"> </p>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
-                        aria-label="Search">
-                </form>
+    </div>
 
-                <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+    <h1 class="hi">안녕하세요 박우석 입니다</h1>
+
+    <div class="button_link">
+        <div>
+            <a target="_blank" href="https://blog.naver.com/youkn0wthat">Vlog</a>
+            <a target="_blank" href="https://github.com/wooseok-react7">Github</a>
+            <a target="_blank" href="https://www.instagram.com/">instagram</a>
+            <a target="_blank" href="https://www.youtube.com/">youtube</a>
+            <a target="_blank" href="https://www.tiktok.com/explore">Tiktok</a>
+        </div>
+    </div>
+    <div class="content_1">
+        <div>
+            　</br>
+            　</br>
+            안녕하세요 React 7기 박우석입니다 ㅎㅎ</br>
+            코딩에 흥미를 느끼고 개발자가 되고 싶어 지원하게 되었습니다.</br>
+            MBIT는 INTJ고 취미는 운동 좋아합니다</br>
+        </div>
+
+        <div class="go_go">
+            <p style="text-align: center;"> 절대로 포기하지 않고 끝까지 가서 취업까지</p>
+            <img
+                SRC="https://postfiles.pstatic.net/MjAyNDEwMDNfMjgw/MDAxNzI3OTM2MDcxNDI4.2tAoaQq2icAHuAlG9mtxGrObQ0Tsvh5kgI5CSmBVE1wg.kkrBFxzMnYKCKBGzGm38qzbX-DznPYhR9Jl2BFrHN-4g.PNG/%EA%B0%80%EB%B3%B4%EC%9E%90%EA%B3%A0.png?type=w966">
+        </div>
+    </div>
+
+    <div class="h_12345">
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+
+        ⬇️ 
+
+        <div class='buttons'>
+            <button class='prev'>
+                <img src ='https://postfiles.pstatic.net/MjAyNDEwMDNfMjgw/MDAxNzI3OTM2MDcxNDI4.2tAoaQq2icAHuAlG9mtxGrObQ0Tsvh5kgI5CSmBVE1wg.kkrBFxzMnYKCKBGzGm38qzbX-DznPYhR9Jl2BFrHN-4g.PNG/%EA%B0%80%EB%B3%B4%EC%9E%90%EA%B3%A0.png?type=w966'>
+            </button>
+        </div>
+
+    </div>
+
+
+    <div>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+        　</br>
+    </div>
+
+
+    <div class="mycard">
+        <div id="card" class="row row-cols-1 row-cols-md-5 g-0">
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                            class="card-img-top" alt="..."> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">영화 리뷰 사이트1</small>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <div class="main">
-        <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-            <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">킹덤2</h1>
-                <p class="col-md-8 fs-4">우석이는 오늘도 죽지못해, 조선을 지켜야 되기 때문에 </p>
-                <button id="savebtn" type="button" class="btn btn-outline-light">상세 정보</button>
-                <button type="button" class="btn btn-outline-light">리뷰 쓰기</button>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="https://postfiles.pstatic.net/MjAyNDEwMDNfMTY3/MDAxNzI3OTQ3NjcxNzQ5.st-qkYAD8zBTeXsIpImFYc-SPad0y7sdWsMKfeLxOtUg.cYMXT6gJiFl5ahfkPhJNw0247LhOur2DAoFS8DIwmlEg.PNG/2;;;.png?type=w966"
+                            class="card-img-top" alt="..."> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">자기소개서2</small>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                            class="card-img-top" alt="..."> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">영화 리뷰 사이트3</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="https://postfiles.pstatic.net/MjAyNDEwMDNfMTY3/MDAxNzI3OTQ3NjcxNzQ5.st-qkYAD8zBTeXsIpImFYc-SPad0y7sdWsMKfeLxOtUg.cYMXT6gJiFl5ahfkPhJNw0247LhOur2DAoFS8DIwmlEg.PNG/2;;;.png?type=w966"
+                            class="card-img-top" alt="..."> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">자기소개서4</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="https://postfiles.pstatic.net/MjAyNDEwMDNfMTY3/MDAxNzI3OTQ3NjcxNzQ5.st-qkYAD8zBTeXsIpImFYc-SPad0y7sdWsMKfeLxOtUg.cYMXT6gJiFl5ahfkPhJNw0247LhOur2DAoFS8DIwmlEg.PNG/2;;;.png?type=w966"
+                            class="card-img-top" alt="..."> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">자기소개서5</small>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="https://postfiles.pstatic.net/MjAyNDEwMDNfMTY3/MDAxNzI3OTQ3NjcxNzQ5.st-qkYAD8zBTeXsIpImFYc-SPad0y7sdWsMKfeLxOtUg.cYMXT6gJiFl5ahfkPhJNw0247LhOur2DAoFS8DIwmlEg.PNG/2;;;.png?type=w966"
+                            class="card-img-top" alt="..."> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">자기소개서6</small>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="slide col">
+                <div class="card h-100">
+                    <a href="https://postfiles.pstatic.net/MjAyNDEwMDNfMTYz/MDAxNzI3OTQxNTQzMjUz.TEv9pkAA16nQJTUd20wgY9JfSfMZEvmxD_R4Cva6SEgg.iDni85PhupoqGWEJLDI2T4eswNGiWImk8PrQ4c1wjT0g.PNG/1;;;.png?type=w966"
+                        target="_blank">
+                        <img src="https://postfiles.pstatic.net/MjAyNDEwMDNfMTY3/MDAxNzI3OTQ3NjcxNzQ5.st-qkYAD8zBTeXsIpImFYc-SPad0y7sdWsMKfeLxOtUg.cYMXT6gJiFl5ahfkPhJNw0247LhOur2DAoFS8DIwmlEg.PNG/2;;;.png?type=w966"
+                            class="card-img-top" alt="..."> </a>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <small class="text-body-secondary">자기소개서7</small>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+
+
+
         </div>
     </div>
 
-    <div class="mypostingbox" id="postingbox">
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="image" placeholder="영화 이미지 주소">
-            <label for="floatingInput">영화 이미지 주소</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="title" placeholder="영화 제목">
-            <label for="floatingInput">영화 제목</label>
-        </div>
-
-        <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">별점</label>
-            <select class="form-select" id="star">
-                <option selected>별점선택</option>
-                <option value="⭐">⭐</option>
-                <option value="⭐⭐">⭐⭐</option>
-                <option value="⭐⭐⭐">⭐⭐⭐</option>
-                <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
-                <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
-            </select>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="comment" placeholder="추천 이유">
-            <label for="floatingInput">추천 이유</label>
-        </div>
-        <button id="postingbtn" type="button" class="btn btn-danger">기록하기</button>
-
+    <!-- <div>
+            <div class='buttons'>
+                <button class='prev'>
+                    뒤로
+                </button>
+                <button class='next'>
+                    앞으로
+                </button>
+            </div>
+        </div> -->
 
     </div>
-
-
-    <div class="mycards">
-        <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
-        </div>
-    </div>
+    <script src="dad.js"></script>
 </body>
 
 </html>
