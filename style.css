@@ -1,189 +1,206 @@
-.button_link {
-    font-size: 40px;
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 
-    margin-top: 50px;
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
-
+.title {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 200%;
+    margin: right 40px;
+    padding: 20px;
 }
 
-.button_link>div {
-
-
+.title2-text{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 150px;
+}
 
-    justify-content: space-evenly;
+.title3-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 550px;
+}
 
-    width: 50%;
-    margin: 0 auto;
+.title_pont{
+    font-family: "Protest Strike", sans-serif;
 
 }
 
-.button_link>div a {
-    text-decoration-line: none;
-    color: black;
 
+.title4-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 550px;
 }
 
-.button_link>div a:hover {
-    color: orange;
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-* {
-    font-family: "Dongle", sans-serif;
-    font-weight: 300;
-    font-style: normal;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;   /* 글자 색상*/
+    position: fixed;  /* 고정된 상단바 */
+    top: 0;           /* 화면 상단에 고정 */
+    left: 0;
+    width: 100%;      /* 화면 전체 너비 */
+    z-index: 1000;    /* 다른 요소 위에 위치 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+}
 
+.menu-image {
+    position: absolute;
+    top: 20px;
+    left: 200px;
+    width: 100px !important;
+    height: auto;
+    z-index: 1;
+}
+
+.menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
     margin: 0;
     padding: 0;
+    justify-content: center;
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+}
+
+.menu li {
+    margin-left: 20px;
+    padding: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-right: 150px;
+}
+
+.search-box {
+    margin-left: auto;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-input {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    padding: 5px;
+    font-size: 14px;
+    width: 200px;
+}
+
+.search-icon {
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.submit-btn {
+    display: none;
+    margin-left: 5px;
+    padding: 5px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    margin-left: 190px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 80px;
+}
+
+.login-btn {
+    margin-left: 20px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex
+
+}
+
+.login-btn:hover {
+    background-color: #555;
+}
+
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.login-modal input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
-
-.title {
-
-    background-image: url('https://ogq-sticker-global-cdn-z01.afreecatv.com/sticker/186a0239823039b/main.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-
-    position: relative;
-
-    height: 400px;
+.close-btn {
+    padding: 5px 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
-
-#weather {
-    position: absolute;
-    top: 20px;
-    right: 100px;
-
-    font-size: 20px;
-}
-
-
-.hi {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.content_1 {
-    margin: 0 auto;
-    text-align: center;
-
-    font-size: 35px;
-}
-
-.go_go {
-    display: flex;
-    text-align: center;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-}
-
-/* .mycard {
-    width: 1200px;
-    color: black;
-    margin: 20px auto 20px auto;
-
-
-
-    font-size: 35px;
-} */
-/* .container {
-        width: 100%;
-        height: 100%;
-        perspective: 500px;
-        transform-style: preserve-3d; */
-
-
-/* .card {
-        box-shadow: 0 10px 50px gray;
-        position:absolute;
-        left:50%;
-        top:50%;
-
-    } */
-
-
-.mycard {
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    perspective: 100px;
-    transform-style: preserve-3d;
-    position: relative;
-}
-
-.slide {
-    transition: 0.5s;
-    width: 150px;
-    box-shadow: 0 10px 50px gray;
-    height: 200px;
-    background: white;
-    border: 3px solid rgba(0, 0, 0, 0.1);
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%)
-    
-    
-}
-
-.slide img {
-    max-width: 100%; /* 이미지가 카드 너비에 맞춰지도록 설정 */
-    height: auto; /* 이미지 비율 유지 */
-    display: block;
-    margin: 0 auto;
-}
-
-.slide:nth-of-type(1),
-.slide:nth-of-type(2) {
-    transform: translate(calc(-50%*5.1), -50%) translateZ(-100px);
-}
-
-.slide:nth-of-type(3) {
-    transform: translate(calc(-50%*3.1), -50%) translateZ(-50px);
-}
-
-.slide:nth-of-type(4) {
-    transform: translate(calc(-50%*1.1), -50%) translateZ(30px);
-}
-
-.slide:nth-of-type(5) {
-    transform: translate(calc(-50%*-0.9), -50%) translateZ(-50px);
-}
-
-.slide:nth-of-type(6),
-.slide:nth-of-type(7) {
-    transform: translate(calc(-50%*-2.9), -50%) translateZ(-100px);
-}
-
-.buttons {
-
-    position: relative;
-    top: 50px;
-    z-index: 1;
-    bottom: 1em;
-    left: 50%;
-    transform: translate(-50%);
-
-    height: -50px;
-
-}
-
-
-
-
-.h_12345 {
-    margin: 0 auto;
-    text-align: center;
-
-    font-size: 50px;
-
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9;
 }
